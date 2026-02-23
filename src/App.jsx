@@ -85,7 +85,7 @@ export default function App() {
 
 
 
-            <div className='flex items-center justify-evenly gap-2 py-10'>
+            <div className='flex items-center justify-evenly gap-2 py-10 font-sans'>
 
               <div className='text-center'>
                 <button
