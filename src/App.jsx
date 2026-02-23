@@ -85,33 +85,33 @@ export default function App() {
 
 
 
-            <div className='grid grid-cols-3 gap-3'>
+            <div className='flex items-center justify-evenly gap-2 py-10'>
 
               <div className='text-center'>
                 <button
-                  className='w-full border border-amber-400 mb-10 mt-10 hover:bg-amber-600 cursor-pointer'
+                  className='w-full border  py-4 px-6 rounded-xl border-amber-400 hover:bg-amber-600 cursor-pointer'
                   onClick={indietro}>
                   Indietro
                 </button>
               </div>
 
-              <button
+              <div className='tex-center'>
+                <button
+                  onClick={avanti}
 
-                onClick={avanti}
-
-                className={posizione === cronologia.length - 1 ? " w-full opacity-30 cursor-not-allowed border mb-10 mt-10 border-amber-400 hover:bg-amber-600" : "w-full mb-10 mt-10 border border-amber-400  hover:bg-amber-600 cursor-pointer"}
-              >
-                Avanti
-              </button>
+                  className={posizione === cronologia.length - 1 ? " w-full opacity-30 cursor-not-allowed border px-6 py-4 rounded-xl border-amber-400 hover:bg-amber-600" : "w-full  border  py-4 px-6 rounded-xl border-amber-400  hover:bg-amber-600 cursor-pointer"}
+                >Avanti
+                </button>
+              </div>
 
               <div className='text-center'>
                 <button
-                  className='w-full border border-stone-300 mb-10 mt-10 hover:bg-indigo-600 cursor-pointer'
+                  className='w-full border px-6 py-4 rounded-xl  border-stone-300 hover:bg-indigo-600 cursor-pointer'
                   onClick={nuovaCitazione}>
                   Nuova Citazione
                 </button>
-
               </div>
+
             </div>
 
 
