@@ -2,26 +2,40 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 
-export default function App() {
-  const [schermata, setSchermata] = useState("intro");
-  const [citazioni, setCitazioni] = useState([])
+interface Philosopher {
+  name: string
 
-  const [cronologia, setCronologia] = useState([])
+}
+
+interface Quote {
+  quote: string
+  philosopher?: Philosopher
+  work?: string  
+}
+
+
+
+export default function App() {
+  const [schermata, setSchermata] =  useState<"intro" | "quiz">("intro")
+  const [citazioni, setCitazioni] = useState <Quote[]>([])
+
+  const [cronologia, setCronologia] = useState <number[]>([])
   const [posizione, setPosizione] = useState(-1)
+
 
   // inizializza con la prima citazione casuale
   useEffect(() => {
     fetch("https://philosophersapi.com/api/quotes")
       .then(res => res.json())
-      .then(dati => {
+      .then((dati : Quote[]) => {
         setCitazioni(dati)
         const primo = Math.floor(Math.random() * dati.length)
         setCronologia([primo])
         setPosizione(0)
       })
-      .catch(err => {
-        console.log("errore", err)
-      })
+      .catch((err: unknown) => {
+    console.error("errore", err)
+})
   }, [])
 
   const nuovaCitazione = () => {
